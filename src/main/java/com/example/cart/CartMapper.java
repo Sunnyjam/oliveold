@@ -4,9 +4,9 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 
-public class CartMapper {
+public interface CartMapper {
 
     int insertCart(Cart cart);
 
-    String deleteCart(Cart cart);
+    String deleteCart(String productName);
 }

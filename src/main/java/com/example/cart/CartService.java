@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class CartService {
-
     CartMapper cartMapper;
 
     public int insertCart(Cart cart) {
@@ -16,7 +15,7 @@ public class CartService {
         return cartMapper.readCart();
     }*/
 
-    public int deleteCart(String cart) {
-        return cartMapper.deleteCart(cart);
+    public String deleteCart(String productName) {
+        return cartMapper.deleteCart(productName);
     }
 }
