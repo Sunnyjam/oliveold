@@ -12,7 +12,7 @@ public class CartController {
 
     @PostMapping("")
 
-    public int insertCart(@RequestBody Cart cart) {
+    public int insertCart (@RequestBody Cart cart) {
         return cartService.insertCart(cart);
     }
 
