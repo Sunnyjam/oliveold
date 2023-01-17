@@ -18,6 +18,6 @@ public class CartController {
 
     @DeleteMapping("{productName}")
     public String deleteCart(@PathVariable String productName) {
-        return cartService.deleteCart(cart);
+        return cartService.deleteCart(productName);
     }
 }

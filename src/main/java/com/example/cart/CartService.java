@@ -3,8 +3,6 @@ package com.example.cart;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class CartService {
@@ -18,7 +16,7 @@ public class CartService {
         return cartMapper.readCart();
     }*/
 
-    public int deleteCart(Cart cart) {
+    public int deleteCart(String cart) {
         return cartMapper.deleteCart(cart);
     }
 }
