@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.cart.CartMapper">
+
+    <insert id="insertCart" parameterType="com.example.cart.Cart" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO CART (
+        PRODUCTNAME,
+        GET,
+        amount,
+        STOCK,
+        FREESHIPPING,
+        )
+        VALUES (
+        #{productName},
+        #{get},
+        #{amount},
+        #{stock},
+        #{freeShipping}
+        )
+    </insert>
+
+    <delete id="deleteCart" parameterType="Sting">
+        DELETE FROM cart
+        WHERE productName = #{productName}
+    </delete>
+
+</mapper>

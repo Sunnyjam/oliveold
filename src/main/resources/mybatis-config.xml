@@ -4,5 +4,7 @@
 <configuration>
     <mappers>
         <mapper resource="ProductMapper.xml"/>
+        <mapper resource="userMapper.xml"/>
+        <mapper resource="cartMapper.xml"/>
     </mappers>
 </configuration>

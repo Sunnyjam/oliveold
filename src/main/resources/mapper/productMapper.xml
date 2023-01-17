@@ -27,4 +27,16 @@
         )
     </insert>
 
+    <select id="readProduct" resultType="com.example.product.Product">
+        SELECT productId, productName, content, price, stock, productStatus, createdAt, updatedAt
+        FROM product
+    </select>
+
+    <delete id="deleteProduct" parameterType="int">
+        DELETE FROM product
+        WHERE productId = #{productId}
+    </delete>
+
+
+
 </mapper>
