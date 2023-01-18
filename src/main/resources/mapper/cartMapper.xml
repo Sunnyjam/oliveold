@@ -4,7 +4,7 @@
 
 <mapper namespace="com.example.cart.CartMapper">
 
-    <insert id="insertCart" parameterType="com.example.cart.Cart" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertCart" parameterType="com.example.cart.Cart" useGeneratedKeys="true" keyProperty="productName">
         INSERT INTO CART (
         PRODUCTNAME,
         GET,
@@ -21,7 +21,7 @@
         )
     </insert>
 
-    <delete id="deleteCart" parameterType="Sting">
+    <delete id="deleteCart" parameterType="Srting">
         DELETE FROM cart
         WHERE productName = #{productName}
     </delete>

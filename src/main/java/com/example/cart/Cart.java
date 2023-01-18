@@ -12,8 +12,9 @@ import lombok.ToString;
 
 public class Cart {
         private String productName;
-        private int amount;
         private int get;
-        private int stoke;
+        private int amount;
+        private int stock;
+        private int freeShippung;
     }
 
