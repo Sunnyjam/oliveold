@@ -37,6 +37,10 @@
         WHERE productId = #{productId}
     </delete>
 
-
+    <select id="readProductDetail" resultType="com.example.product.Product" parameterType="int">
+        SELECT productId, productName, content, price, stock, productStatus, createdAt, updatedAt
+        FROM product
+        WHERE productId = #{productId}
+    </select>
 
 </mapper>

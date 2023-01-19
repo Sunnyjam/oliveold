@@ -21,4 +21,8 @@ public class ProductService {
     public int deleteProduct(int productId) {
         return productMapper.deleteProduct(productId);
     }
+
+    public Product readProductDetail(int productId) {
+        return productMapper.readProductDetail(productId);
+    }
 }

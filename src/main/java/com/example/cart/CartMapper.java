@@ -1,12 +1,17 @@
 package com.example.cart;
 
+import com.example.product.Product;
 import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
+import java.util.List;
 
+@Mapper
 public interface CartMapper {
 
     int insertCart(Cart cart);
 
-    String deleteCart(String productName);
+    int deleteCart(int cartId);
+
+    List<Cart> readCart();
+
 }

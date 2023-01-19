@@ -10,4 +10,6 @@ public interface ProductMapper {
     List<Product> readProduct();
 
     int deleteProduct(int productId);
+
+    Product readProductDetail(int productId);
 }

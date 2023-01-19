@@ -22,13 +22,18 @@ public class ProductController {
         return productService.insertProduct(product);
     }
 
-    @GetMapping("")
+    @GetMapping("/product")
     public List<Product> readProduct() {
         return productService.readProduct();
     }
 
-    @DeleteMapping("{productId}")
+    @DeleteMapping("/product/{productId}")
     public int deleteProduct(@PathVariable int productId) {
         return productService.deleteProduct(productId);
+    }
+
+    @GetMapping("/product/{productId}")
+    public Product readProductDetail(@PathVariable int productId) {
+        return productService.readProductDetail(productId);
     }
 }

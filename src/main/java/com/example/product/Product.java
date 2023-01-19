@@ -19,4 +19,6 @@ public class Product {
     private String productStatus;
     private String createdAt;
     private String updateAt;
+
+    private String search;
 }

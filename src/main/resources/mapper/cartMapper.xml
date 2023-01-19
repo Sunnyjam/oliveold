@@ -4,26 +4,33 @@
 
 <mapper namespace="com.example.cart.CartMapper">
 
-    <insert id="insertCart" parameterType="com.example.cart.Cart" useGeneratedKeys="true" keyProperty="productName">
+    <insert id="insertCart" parameterType="com.example.cart.Cart" useGeneratedKeys="true" keyProperty="cartId">
         INSERT INTO CART (
         PRODUCTNAME,
-        GET,
-        amount,
+        BOX,
+        AMOUNT,
         STOCK,
-        FREESHIPPING,
+        PRODUCTID,
+        PRICE
         )
         VALUES (
         #{productName},
-        #{get},
+        #{box},
         #{amount},
         #{stock},
-        #{freeShipping}
+        #{productId},
+        #{price}
         )
     </insert>
 
-    <delete id="deleteCart" parameterType="Srting">
+    <delete id="deleteCart" parameterType="int">
         DELETE FROM cart
-        WHERE productName = #{productName}
+        WHERE cartId = #{cartId}
     </delete>
+
+    <select id="readCart" resultType="com.example.cart.Cart">
+        SELECT cartId, productName, stock, amount, box
+        FROM cart
+    </select>
 
 </mapper>

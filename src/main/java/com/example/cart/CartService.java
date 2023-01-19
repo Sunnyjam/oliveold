@@ -1,7 +1,10 @@
 package com.example.cart;
 
+import com.example.product.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +18,11 @@ public class CartService {
         return cartMapper.readCart();
     }*/
 
-    public String deleteCart(String productName) {
-        return cartMapper.deleteCart(productName);
+    public int deleteCart(int cartId) {
+        return cartMapper.deleteCart(cartId);
+    }
+
+    public List<Cart> readCart() {
+        return cartMapper.readCart();
     }
 }
