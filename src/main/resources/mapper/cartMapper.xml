@@ -5,7 +5,8 @@
 <mapper namespace="com.example.cart.CartMapper">
 
     <insert id="insertCart" parameterType="com.example.cart.Cart" useGeneratedKeys="true" keyProperty="cartId">
-        INSERT INTO CART (
+        INSERT INTO PRODUCT (
+        CARTID,
         PRODUCTNAME,
         BOX,
         AMOUNT,
@@ -14,6 +15,7 @@
         PRICE
         )
         VALUES (
+        #{cartId},
         #{productName},
         #{box},
         #{amount},
@@ -23,14 +25,20 @@
         )
     </insert>
 
+    <select id="readCart" resultType="com.example.cart.Cart">
+        SELECT cartId, productName, box, amount, stock, productId, price
+        FROM cart
+    </select>
+
     <delete id="deleteCart" parameterType="int">
-        DELETE FROM cart
-        WHERE cartId = #{cartId}
+    DELETE FROM cart
+    WHERE cartId = #{cartId}
     </delete>
 
-    <select id="readCart" resultType="com.example.cart.Cart">
-        SELECT cartId, productName, stock, amount, box
+<select id="readCartDetail" resultType="com.example.cart.Cart" parameterType="int">
+        SELECT cartId, productName, box, amount, stock, productId, price
         FROM cart
+        WHERE cartId = #{cartId}
     </select>
 
 </mapper>

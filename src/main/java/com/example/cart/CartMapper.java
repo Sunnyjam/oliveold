@@ -7,11 +7,11 @@ import java.util.List;
 
 @Mapper
 public interface CartMapper {
+    int insertCart ( Cart cart);
 
-    int insertCart(Cart cart);
+    Cart readCart();
 
-    int deleteCart(int cartId);
+    int deleteCart (int cartId );
 
-    List<Cart> readCart();
-
+    Cart readCartDetail (int cartId);
 }
