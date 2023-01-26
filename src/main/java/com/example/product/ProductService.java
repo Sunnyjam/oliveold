@@ -25,4 +25,9 @@ public class ProductService {
     public Product readProductDetail(int productId) {
         return productMapper.readProductDetail(productId);
     }
+
+    public Product searchProduct( ) throws Exception {
+        String searchName = System.getenv().toString();
+        return productMapper.searchProduct( String searchName);
+    }
 }

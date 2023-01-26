@@ -36,4 +36,9 @@ public class ProductController {
     public Product readProductDetail(@PathVariable int productId) {
         return productService.readProductDetail(productId);
     }
+
+    @GetMapping("/product/search/{productId}")
+    public String searchProduct (@PathVariable String searchName) {
+        return productService.searchProduct(searchName);
+    }
 }

@@ -43,4 +43,10 @@
         WHERE productId = #{productId}
     </select>
 
+    <select id="searchProduct" resultType="com.example.product.Product">
+    SELECT productName
+    FROM product
+    WHERE productName = #{productName}
+    </select>
+
 </mapper>

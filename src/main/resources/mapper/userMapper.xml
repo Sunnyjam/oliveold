@@ -24,5 +24,4 @@
         FROM user
     </select>
 
-
 </mapper>

@@ -12,4 +12,6 @@ public interface ProductMapper {
     int deleteProduct(int productId);
 
     Product readProductDetail(int productId);
+
+    Product searchProduct( );
 }
