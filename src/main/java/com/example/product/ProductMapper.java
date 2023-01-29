@@ -1,6 +1,7 @@
 package com.example.product;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,5 +14,11 @@ public interface ProductMapper {
 
     Product readProductDetail(int productId);
 
-    Product searchProduct( );
+   // String searchProduct ( Product product );
+
+    int heartCount(@Param("userId") int userId, @Param("productId") int productId);
+
+    int insertHeart( Product product);
+
+    int deleteHeart (int id);
 }

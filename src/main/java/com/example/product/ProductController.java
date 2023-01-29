@@ -37,8 +37,23 @@ public class ProductController {
         return productService.readProductDetail(productId);
     }
 
-    @GetMapping("/product/search/{productId}")
-    public String searchProduct (@PathVariable String searchName) {
-        return productService.searchProduct(searchName);
+//    @GetMapping("/product/search/{productId}")
+//    public String searchProduct (@PathVariable String searchName) {
+//        return productService.searchProduct(searchName);
+//    }
+
+    @GetMapping("/product/{userId}/{productId}")
+    public int heartCount(@PathVariable(value = "userId") int userId, @PathVariable(value = "productId") int productId) {
+        return productService.heartCount(userId, productId);
+    }
+
+    @PostMapping("/product/insertHeart")
+    private int insertHeart (@RequestBody Product product){
+        return productService.insertHeart(product);
+    }
+
+    @DeleteMapping("/product/heart/{id}")
+    public int deleteHeart(@PathVariable int id){
+        return productService.deleteHeart(id);
     }
 }

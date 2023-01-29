@@ -26,8 +26,20 @@ public class ProductService {
         return productMapper.readProductDetail(productId);
     }
 
-    public Product searchProduct( ) throws Exception {
-        String searchName = System.getenv().toString();
-        return productMapper.searchProduct( String searchName);
+//    public String searchProduct( ) throws Exception {
+//        String searchName = System.getenv().toString();
+//        return productMapper.searchProduct( );
+//    }
+
+    public int heartCount(int userId, int productId) {
+        return productMapper.heartCount(userId, productId);
+    }
+
+    public int insertHeart(Product product) {
+        return productMapper.insertHeart(product);
+    }
+
+    public int deleteHeart(int id) {
+        return productMapper.deleteHeart(id);
     }
 }

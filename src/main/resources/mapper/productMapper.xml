@@ -28,8 +28,19 @@
     </insert>
 
     <select id="readProduct" resultType="com.example.product.Product">
-        SELECT productId, productName, content, price, stock, productStatus, createdAt, updatedAt
+        SELECT productId
+        , productName
+        , content
+        , price
+        , stock
+        , productStatus
+        , createdAt
+        , updatedAt
         FROM product
+        WHERE 1 = 1
+        <if test="productName != null">
+         AND productName like '%'||#{productName}||'%'
+        </if>
     </select>
 
     <delete id="deleteProduct" parameterType="int">
@@ -43,10 +54,35 @@
         WHERE productId = #{productId}
     </select>
 
-    <select id="searchProduct" resultType="com.example.product.Product">
-    SELECT productName
-    FROM product
-    WHERE productName = #{productName}
+
+
+    <select id="heartCount" parameterType="com.example.product.Product" resultType="int">
+        SELECT ID
+        , PRODUCTID
+        , USERID
+        , HEART_COUNT
+        FROM HEART
+        WHERE userId=#{userId} and productId=#{productId}
     </select>
+
+    <insert id="insertHeart" parameterType="com.example.product.Product" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO HEART (
+          ID
+        , PRODUCTID
+        , USERID
+        , HEART_COUNT )
+        VALUES (
+          #{id}
+        , #{productId}
+        , #{userId}
+        , #{heartCount}
+        )
+    </insert>
+
+    <delete id="deleteHeart" parameterType="com.example.product.Product">
+        DELETE
+        FROM HEART
+        WHERE id=#{id}
+    </delete>
 
 </mapper>
