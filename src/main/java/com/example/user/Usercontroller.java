@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class Usercontroller {
     @Autowired
     UserService userService;
@@ -28,4 +28,11 @@ public class Usercontroller {
     public UserDTO readUser() {
         return userService.readUser();
     }
+
+    @GetMapping("/{userId}")
+    public String userIdCheck(@PathVariable String userId) {
+        return userService.userIdCheck(userId);
+    }
+
+
 }

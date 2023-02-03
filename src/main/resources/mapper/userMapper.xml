@@ -5,12 +5,13 @@
 <mapper namespace="com.example.user.UserMapper">
 
     <insert id="insertUser" parameterType="com.example.user.UserDTO" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO USER ( userId,userName,userPassword
+        INSERT INTO USER ( userId,userName,userPassword,email
         )
         VALUES (
         #{userId},
         #{userName},
-        #{userPw}
+        #{userPw},
+        #{email}
         )
     </insert>
 
@@ -22,6 +23,18 @@
     <select id="readUser" resultType="com.example.user.UserDTO">
         SELECT userId, userName, userPassword, id
         FROM user
+    </select>
+
+    <select id="userIdCheck" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT userId
+        FROM user
+        where userId = #{userId}
+    </select>
+
+    <select id="emailCheck" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT email
+        FROM user
+        where email = #{email}
     </select>
 
 </mapper>

@@ -1,6 +1,5 @@
 package com.example.user;
 
-import com.example.product.Product;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -10,4 +9,8 @@ public interface UserMapper {
     int deleteUser(int id);
 
     UserDTO readUser();
+
+    String userIdCheck(String userId);
+
+    String emailCheck(String email);
 }

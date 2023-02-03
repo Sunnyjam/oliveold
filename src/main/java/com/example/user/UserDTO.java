@@ -13,5 +13,5 @@ public class UserDTO {
     private String userName;
     private String userId;
     private String userPw;
-    // todo email
+    private String email;
 }
