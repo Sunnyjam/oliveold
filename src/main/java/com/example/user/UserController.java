@@ -12,6 +12,19 @@ public class UserController {
 
     @PostMapping("/insertUser")
     public int insertUser(@RequestBody User user) {
+        //user 조회하는 mapper 호출
+        //user 가 존재하며누"이미 존재하는 회원입니다.
+        //userId가 DB에서 없는 지 먼저 if로 체크하기
+        String userID = userIdCheck(user.getUserId());
+        String email = emailCheck(user.getEmail());
+
+        if (userID.equals(user.getUserId())) {
+            return -1;
+            //int라 "이미 존재하는 회원입니다" 작성이 안됨 = -1
+        } else if (email.equals(user.getEmail())) {
+            return -2;
+            //"이미 존재하는 email 입니다 = -2
+        }
         return userService.insertUser(user);
     }
 

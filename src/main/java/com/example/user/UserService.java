@@ -23,8 +23,7 @@ public class UserService {
     public String userIdCheck(String userId) {
         return userMapper.userIdCheck(userId);
     }
-
-        public String emailCheck(String email) {
+    public String emailCheck(String email) {
         return userMapper.emailCheck(email);
     }
 }
