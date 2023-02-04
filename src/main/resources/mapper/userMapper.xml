@@ -2,17 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.user.UserMapper">
+<mapper namespace="com.example.user.userMapper">
 
-    <insert id="insertUser" parameterType="com.example.user.UserDTO" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO USER ( userId,userName,userPassword,email
-        )
+    <insert id="insertUser" parameterType="com.example.user.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO USER (
+        USERID,
+        USERNAME,
+        USERPASSWORD,
+        EMAIL
         VALUES (
         #{userId},
         #{userName},
-        #{userPw},
+        #{userPassword},
         #{email}
-        )
     </insert>
 
     <delete id="deleteUser" parameterType="int">
@@ -20,21 +22,23 @@
         WHERE id = #{id}
     </delete>
 
-    <select id="readUser" resultType="com.example.user.UserDTO">
-        SELECT userId, userName, userPassword, id
+    <select id="readUser" resultType="com.example.user.User">
+        SELECT USERID
+        , USERNAME
+        , USERPASSWORD
+        , ID
         FROM user
     </select>
 
-    <select id="userIdCheck" parameterType="java.lang.String" resultType="java.lang.String">
-        SELECT userId
+    <select id="userIdCheck" resultType="java.lang.String" parameterType="java.lang.String">
+        SELECT USERID
         FROM user
-        where userId = #{userId}
+        WHERE userId = #{userId}
     </select>
 
-    <select id="emailCheck" parameterType="java.lang.String" resultType="java.lang.String">
-        SELECT email
+    <select id="emailCheck" resultType="java.lang.String" parameterType="java.lang.String">
+        SELECT EMAIL
         FROM user
-        where email = #{email}
+        WHERE email = #{email}
     </select>
-
 </mapper>

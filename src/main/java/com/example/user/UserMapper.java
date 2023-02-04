@@ -4,13 +4,12 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserMapper {
-    int insertUser(UserDTO userDTO);
-
+    int insertUser(User user);
     int deleteUser(int id);
-
-    UserDTO readUser();
-
+    User readUser();
     String userIdCheck(String userId);
-
     String emailCheck(String email);
+
+
+
 }
