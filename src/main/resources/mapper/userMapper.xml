@@ -41,4 +41,11 @@
         FROM user
         WHERE email = #{email}
     </select>
+
+    <insert id="insertPassword" parameterType="java.lang.String" >
+        INSERT INTO USER (
+        USERPASSWORD
+        VALUES (
+        #{userPassword},
+    </insert>
 </mapper>

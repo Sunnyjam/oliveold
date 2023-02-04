@@ -47,4 +47,12 @@ public class UserController {
     public String emailCheck(@PathVariable String email) {
         return userService.emailCheck(email);
     }
+
+    @PostMapping("/insertPassword")
+    public String insertPassword(@RequestBody String userPassword) {
+        if ( String userPassword < 8){
+            return "8자리 이상 비밀번호를 입력하세요.";
+        }
+        return userService.insertPassword(userPassword);
+    }
 }
