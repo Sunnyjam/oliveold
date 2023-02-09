@@ -57,4 +57,9 @@ public class UserController {
     public String emailCheck(@PathVariable String email) {
         return userService.emailCheck(email);
     }
+
+    @PostMapping("/{login}")
+    public User login(@RequestBody User user){
+        return userService.login();
+    }
 }

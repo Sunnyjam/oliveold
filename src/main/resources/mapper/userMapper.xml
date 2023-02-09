@@ -41,4 +41,13 @@
         FROM user
         WHERE email = #{email}
     </select>
+
+    <select id="login" parameterType="com.example.user.User" resultType="com.example.user.User">
+        SELECT USERID,
+        USERNAME,
+        USERPASSWORD,
+        EMAIL
+        AUTH FROM user
+        WHERE ID = #{id} AND USERPASSWORD = #{userPassword}
+    </select>
 </mapper>

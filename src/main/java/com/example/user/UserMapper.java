@@ -9,6 +9,7 @@ public interface UserMapper {
     User readUser();
     String userIdCheck(String userId);
     String emailCheck(String email);
+    User login();
 
 
 

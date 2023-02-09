@@ -26,4 +26,8 @@ public class UserService {
     public String emailCheck(String email) {
         return userMapper.emailCheck(email);
     }
+
+    public User login() {
+        return userMapper.login();
+    }
 }
