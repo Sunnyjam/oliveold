@@ -62,4 +62,8 @@ public class UserController {
     public User login(@RequestBody User user){
         return userService.login();
     }
+    @GetMapping("/{sessionId}")
+    public String selectSession(@PathVariable String sessionId) {
+        return userService.selectSession(sessionId);
+    }
 }

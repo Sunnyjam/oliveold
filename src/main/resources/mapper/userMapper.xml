@@ -48,6 +48,20 @@
         USERPASSWORD,
         EMAIL
         AUTH FROM user
-        WHERE ID = #{id} AND USERPASSWORD = #{userPassword}
+        WHERE EMAIL = #{email} AND USERPASSWORD = #{userPassword}
+    </select>
+
+    <update id="autoLogin" parameterType="com.example.user.User">
+        UPDATE LOGINUSER
+        SET
+        SESSION_ID=#{sessionId},
+        LIMIT_DATE=#{limitDate}
+        WHERE ID= #{id};
+    </update>
+
+    <select id="selectSession" parameterType="com.example.user.User" resultType="java.lang.String">
+        SELECT *
+        FROM LOGINUSER
+        WHERE sessionId = #{sessionId}
     </select>
 </mapper>

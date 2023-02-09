@@ -30,4 +30,7 @@ public class UserService {
     public User login() {
         return userMapper.login();
     }
+    public String selectSession(String sessionId) {
+        return userMapper.selectSession(sessionId);
+    }
 }
