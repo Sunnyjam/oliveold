@@ -10,7 +10,6 @@ public interface UserMapper {
     String userIdCheck(String userId);
     String emailCheck(String email);
 
-    String insertPassword(String userPassword);
 
 
 

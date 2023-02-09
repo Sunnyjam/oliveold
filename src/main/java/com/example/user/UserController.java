@@ -13,20 +13,30 @@ public class UserController {
     @PostMapping("/insertUser")
     public int insertUser(@RequestBody User user) {
         //user 조회하는 mapper 호출
-        //user 가 존재하며누"이미 존재하는 회원입니다.
+        //user 가 존재하면 "이미 존재하는 회원입니다."
         //userId가 DB에서 없는 지 먼저 if로 체크하기
         String userID = userIdCheck(user.getUserId());
         String email = emailCheck(user.getEmail());
+        String userPassword = String.valueOf(readUser());
 
         if (userID.equals(user.getUserId())) {
-            return -1;
-            //int라 "이미 존재하는 회원입니다" 작성이 안됨 = -1
-        } else if (email.equals(user.getEmail())) {
-            return -2;
-            //"이미 존재하는 email 입니다 = -2
+            return -1;}// "이미 존재하는 회원입니다."
+        else if ( userID == null){
+            return userService.insertUser(user);
+            // "가입 가능한 회원입니다.
+        } if (email.equals(user.getEmail())) {
+            return -2; //"이미 존재하는 이메일 입니다."
+        } else if ( email == null){
+            return userService.insertUser(user);
+            //"가입 가능한 이메일 입니다."
+        } if (userPassword.length() < 8) {
+            return -3; // "비밀번호는 8자리 이상이여야 합니다."
+        } else {
+            return userService.insertUser(user);
         }
-        return userService.insertUser(user);
     }
+
+
 
     @DeleteMapping("/{id}")
     public int deleteUser(@PathVariable int id) {
@@ -46,13 +56,5 @@ public class UserController {
     @GetMapping("/{email}")
     public String emailCheck(@PathVariable String email) {
         return userService.emailCheck(email);
-    }
-
-    @PostMapping("/insertPassword")
-    public String insertPassword(@RequestBody String userPassword) {
-        if ( String userPassword < 8){
-            return "8자리 이상 비밀번호를 입력하세요.";
-        }
-        return userService.insertPassword(userPassword);
     }
 }

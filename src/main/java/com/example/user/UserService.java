@@ -26,8 +26,4 @@ public class UserService {
     public String emailCheck(String email) {
         return userMapper.emailCheck(email);
     }
-
-    public String insertPassword(String userPassword) {
-        return userMapper.insertPassword(userPassword);
-    }
 }
