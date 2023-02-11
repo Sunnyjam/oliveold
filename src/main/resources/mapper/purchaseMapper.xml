@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.purchase.PurchaseMapper">
+
+    <insert id="insertPurchase" parameterType="com.example.purchase.Purchase" useGeneratedKeys="true" keyProperty="purchaseId">
+        INSERT INTO PRODUCT (
+        purchaseId,
+        email,
+        productId,
+        productName,
+        price
+        )
+        VALUES (
+        #{purchaseId},
+        #{email},
+        #{productId},
+        #{productName},
+        #{price}
+        )
+    </insert>
+
+    <select id="wishPurchase" resultType="com.example.purchase.Purchase">
+        SELECT PURCHASEID,
+               EMAIL,
+               PRODUCTID,
+               PRODUCTNAME,
+               PRICE
+        FROM PURCHASE
+        WHERE EMAIL = #{email}
+    </select>
+
+    <select id="wish" resultType="com.example.purchase.Purchase">
+        SELECT PURCHASEID,
+        EMAIL,
+        PRODUCTID,
+        PRODUCTNAME,
+        PRICE
+        FROM PURCHASE
+        WHERE PRODUCTID = #{productId}
+    </select>
+
+</mapper>

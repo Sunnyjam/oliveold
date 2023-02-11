@@ -27,10 +27,14 @@ public class UserService {
         return userMapper.emailCheck(email);
     }
 
-    public User login() {
-        return userMapper.login();
+    public User login(User user) {
+        return userMapper.login(user);
     }
     public String selectSession(String sessionId) {
         return userMapper.selectSession(sessionId);
+    }
+
+    public int userUpdate(User user) {
+        return userMapper.userUpdate(user);
     }
 }

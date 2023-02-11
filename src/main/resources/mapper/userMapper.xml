@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.user.userMapper">
+<mapper namespace="com.example.user.UserMapper">
 
     <insert id="insertUser" parameterType="com.example.user.User" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO USER (
@@ -10,11 +10,13 @@
         USERNAME,
         USERPASSWORD,
         EMAIL
+        )
         VALUES (
         #{userId},
         #{userName},
         #{userPassword},
         #{email}
+        )
     </insert>
 
     <delete id="deleteUser" parameterType="int">
@@ -43,12 +45,14 @@
     </select>
 
     <select id="login" parameterType="com.example.user.User" resultType="com.example.user.User">
-        SELECT USERID,
-        USERNAME,
-        USERPASSWORD,
-        EMAIL
-        AUTH FROM user
-        WHERE EMAIL = #{email} AND USERPASSWORD = #{userPassword}
+        SELECT
+            USERID,
+            USERNAME,
+            USERPASSWORD,
+            EMAIL
+        FROM USER
+        WHERE EMAIL = #{email}
+        AND USERPASSWORD = #{userPassword}
     </select>
 
     <update id="autoLogin" parameterType="com.example.user.User">
@@ -57,6 +61,14 @@
         SESSION_ID=#{sessionId},
         LIMIT_DATE=#{limitDate}
         WHERE ID= #{id};
+    </update>
+
+    <update id="userUpdate" parameterType="com.example.user.User">
+        UPDATE USER
+        SET
+            USERPASSWORD = #{userPassword},
+            USERNAME = #{userName}
+        WHERE EMAIL = #{email}
     </update>
 
     <select id="selectSession" parameterType="com.example.user.User" resultType="java.lang.String">
