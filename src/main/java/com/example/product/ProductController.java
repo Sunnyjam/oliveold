@@ -56,4 +56,9 @@ public class ProductController {
     public int deleteHeart(@PathVariable int id){
         return productService.deleteHeart(id);
     }
+
+    @GetMapping("/product/readHeart/{userId}/{productId}")
+    public int readHeart(@PathVariable(value = "userId") int userId,@PathVariable(value = "productId") int productId) {
+        return productService.readHeart(userId,productId);
+    }
 }

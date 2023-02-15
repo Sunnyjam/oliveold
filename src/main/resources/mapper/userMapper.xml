@@ -26,10 +26,10 @@
 
     <select id="readUser" resultType="com.example.user.User">
         SELECT USERID
-        , USERNAME
-        , USERPASSWORD
-        , ID
-        FROM user
+             , USERNAME
+             , USERPASSWORD
+             , ID
+        FROM USER
     </select>
 
     <select id="userIdCheck" resultType="java.lang.String" parameterType="java.lang.String">

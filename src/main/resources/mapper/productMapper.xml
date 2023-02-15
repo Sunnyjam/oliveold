@@ -44,8 +44,8 @@
     </select>
 
     <delete id="deleteProduct" parameterType="int">
-        DELETE FROM product
-        WHERE productId = #{productId}
+        DELETE FROM PRODUCT
+        WHERE PRODUCTID = #{productid}
     </delete>
 
     <select id="readProductDetail" resultType="com.example.product.Product" parameterType="int">
@@ -84,5 +84,14 @@
         FROM HEART
         WHERE id=#{id}
     </delete>
+
+    <select id="readHeart" resultType="com.example.product.Product" parameterType="int">
+        SELECT ID
+        , PRODUCTID
+        , USERID
+        , HEART_COUNT
+        FROM HEART
+        WHERE userId=#{userId} and productId=#{productId}
+    </select>
 
 </mapper>

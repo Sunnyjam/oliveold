@@ -11,11 +11,11 @@ public class PurchaseService {
     public int insertPurchase (Purchase purchase) {
         return purchaseMapper.insertPurchase(purchase);
     }
-    public String wishPurchase(Purchase purchase) {
-        return purchaseMapper.wishPurchase(purchase);
-    }
-    public String wish(Purchase purchase) {
-        return purchaseMapper.wish(purchase);
+    public int deletePurchase(int productid) {
+        return purchaseMapper.deletePurchase(productid);
     }
 
+    public Purchase readPurchase() {
+        return purchaseMapper.readPurchase();
+    }
 }

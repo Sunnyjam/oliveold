@@ -42,4 +42,8 @@ public class ProductService {
     public int deleteHeart(int id) {
         return productMapper.deleteHeart(id);
     }
+
+    public int readHeart(int userId, int productId) {
+        return productMapper.readHeart(userId, productId);
+    }
 }

@@ -13,12 +13,13 @@ public class PurchaseController {
     public int insertPurchase(@RequestBody Purchase purchase) {
         return purchaseService.insertPurchase(purchase);
     }
-    @GetMapping("/{email}")
-    public String wishPurchase(Purchase purchase) {
-        return purchaseService.wishPurchase(purchase);
-    }
-    @GetMapping("/{productId}")
-    public String wish(Purchase purchase) {
-        return purchaseService.wish(purchase);
-    }
+   @DeleteMapping("/deletePurchase/{productid}")
+    public int deletePurchase(@PathVariable int productid) {
+        return purchaseService.deletePurchase(productid);
+   }
+
+   @GetMapping("/readPurchase")
+    public Purchase readPurchase() {
+        return purchaseService.readPurchase();
+   }
 }

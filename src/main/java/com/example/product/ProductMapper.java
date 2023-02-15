@@ -21,4 +21,6 @@ public interface ProductMapper {
     int insertHeart( Product product);
 
     int deleteHeart (int id);
+
+    int readHeart(@Param("userId") int userId, @Param("productId") int productId);
 }

@@ -26,19 +26,31 @@
     </insert>
 
     <select id="readCart" resultType="com.example.cart.Cart">
-        SELECT cartId, productName, box, amount, stock, productId, price
-        FROM cart
+        SELECT CARTID
+             , PRODUCTNAME
+             , BOX
+             , AMOUNT
+             , STOCK
+             , PRODUCTID
+             , PRICE
+        FROM CART
     </select>
 
     <delete id="deleteCart" parameterType="int">
-    DELETE FROM cart
-    WHERE cartId = #{cartId}
+    DELETE FROM CART
+    WHERE CARTID = #{cartId}
     </delete>
 
 <select id="readCartDetail" resultType="com.example.cart.Cart" parameterType="int">
-        SELECT cartId, productName, box, amount, stock, productId, price
-        FROM cart
-        WHERE cartId = #{cartId}
+        SELECT CARTID
+             , PRODUCTNAME
+             , BOX
+             , AMOUNT
+             , STOCK
+             , PRODUCTID
+             , PRICE
+        FROM CART
+        WHERE CARTID = #{cartId}
     </select>
 
 </mapper>

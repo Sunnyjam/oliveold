@@ -21,24 +21,18 @@
         )
     </insert>
 
-    <select id="wishPurchase" resultType="com.example.purchase.Purchase">
-        SELECT PURCHASEID,
-               EMAIL,
-               PRODUCTID,
-               PRODUCTNAME,
-               PRICE
-        FROM PURCHASE
-        WHERE EMAIL = #{email}
-    </select>
+    <delete id="deletePurchase" parameterType="int">
+        DELETE FROM PRODUCT
+        WHERE PRODUCTID = #{productid}
+    </delete>
 
-    <select id="wish" resultType="com.example.purchase.Purchase">
-        SELECT PURCHASEID,
-        EMAIL,
-        PRODUCTID,
-        PRODUCTNAME,
-        PRICE
-        FROM PURCHASE
-        WHERE PRODUCTID = #{productId}
+    <select id="readPurchase" resultType="com.example.purchase.Purchase">
+        SELECT PURCHASEID
+             , EMAIL
+             , PRODUCTID
+             , PRODUCTNAME
+             , PRICE
+        FROM PRODUCT
     </select>
 
 </mapper>
