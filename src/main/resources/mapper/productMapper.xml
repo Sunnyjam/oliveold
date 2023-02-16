@@ -60,22 +60,22 @@
         SELECT ID
         , PRODUCTID
         , USERID
-        , HEART_COUNT
+        , HEARTCOUNT
         FROM HEART
         WHERE userId=#{userId} and productId=#{productId}
     </select>
 
     <insert id="insertHeart" parameterType="com.example.product.Product" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO HEART (
-          ID
-        , PRODUCTID
-        , USERID
-        , HEART_COUNT )
-        VALUES (
-          #{id}
-        , #{productId}
-        , #{userId}
-        , #{heartCount}
+                    ID
+                  , PRODUCTID
+                  , USERID
+                  , HEARTCOUNT )
+                   VALUES (
+                  #{id}
+                , #{productId}
+                , #{userId}
+                , #{heartCount}
         )
     </insert>
 
@@ -85,13 +85,14 @@
         WHERE id=#{id}
     </delete>
 
-    <select id="readHeart" resultType="com.example.product.Product" parameterType="int">
+    <select id="readHeart" resultType="com.example.product.Product" parameterType="com.example.product.Product">
         SELECT ID
         , PRODUCTID
         , USERID
-        , HEART_COUNT
+        , HEARTCOUNT
         FROM HEART
-        WHERE userId=#{userId} and productId=#{productId}
+        WHERE userId=#{userId}
+        AND productId=#{productId}
     </select>
 
 </mapper>

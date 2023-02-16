@@ -3,6 +3,8 @@ package com.example.purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PurchaseService {
@@ -11,11 +13,11 @@ public class PurchaseService {
     public int insertPurchase (Purchase purchase) {
         return purchaseMapper.insertPurchase(purchase);
     }
-    public int deletePurchase(int productid) {
-        return purchaseMapper.deletePurchase(productid);
+    public int deletePurchase(int purchaseId) {
+        return purchaseMapper.deletePurchase(purchaseId);
     }
 
-    public Purchase readPurchase() {
+    public List<Purchase> readPurchase() {
         return purchaseMapper.readPurchase();
     }
 }

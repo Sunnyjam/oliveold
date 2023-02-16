@@ -76,4 +76,11 @@
         FROM LOGINUSER
         WHERE sessionId = #{sessionId}
     </select>
+
+    <select id="findPassWord" parameterType="com.example.user.User" resultType="com.example.user.User">
+        SELECT userId
+              ,userPassword
+        FROM USER
+        WHERE USERID = #{userId}
+    </select>
 </mapper>

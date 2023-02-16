@@ -58,7 +58,7 @@ public class ProductController {
     }
 
     @GetMapping("/product/readHeart/{userId}/{productId}")
-    public int readHeart(@PathVariable(value = "userId") int userId,@PathVariable(value = "productId") int productId) {
+    public List<Product> readHeart(@PathVariable(value = "userId") int userId, @PathVariable(value = "productId") int productId) {
         return productService.readHeart(userId,productId);
     }
 }

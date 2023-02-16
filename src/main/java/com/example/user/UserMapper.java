@@ -14,6 +14,8 @@ public interface UserMapper {
 
     int userUpdate(User user);
 
+    User findPassWord( User user);
+
 
 
 

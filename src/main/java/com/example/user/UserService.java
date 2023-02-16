@@ -34,6 +34,10 @@ public class UserService {
         return userMapper.selectSession(sessionId);
     }
 
+    public User findPassWord(User user) {
+        return  userMapper.findPassWord(user);
+    }
+
     public int userUpdate(User user) {
         return userMapper.userUpdate(user);
     }

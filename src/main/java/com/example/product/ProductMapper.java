@@ -22,5 +22,5 @@ public interface ProductMapper {
 
     int deleteHeart (int id);
 
-    int readHeart(@Param("userId") int userId, @Param("productId") int productId);
+    List<Product> readHeart(@Param("userId") int userId, @Param("productId") int productId);
 }

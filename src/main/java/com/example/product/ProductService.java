@@ -43,7 +43,7 @@ public class ProductService {
         return productMapper.deleteHeart(id);
     }
 
-    public int readHeart(int userId, int productId) {
+    public List<Product> readHeart(int userId, int productId) {
         return productMapper.readHeart(userId, productId);
     }
 }

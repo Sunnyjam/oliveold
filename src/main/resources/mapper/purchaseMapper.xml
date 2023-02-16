@@ -5,7 +5,7 @@
 <mapper namespace="com.example.purchase.PurchaseMapper">
 
     <insert id="insertPurchase" parameterType="com.example.purchase.Purchase" useGeneratedKeys="true" keyProperty="purchaseId">
-        INSERT INTO PRODUCT (
+        INSERT INTO PURCHASE (
         purchaseId,
         email,
         productId,
@@ -22,8 +22,8 @@
     </insert>
 
     <delete id="deletePurchase" parameterType="int">
-        DELETE FROM PRODUCT
-        WHERE PRODUCTID = #{productid}
+        DELETE FROM PURCHASE
+        WHERE PURCHASEID = #{purchaseId}
     </delete>
 
     <select id="readPurchase" resultType="com.example.purchase.Purchase">
@@ -32,7 +32,7 @@
              , PRODUCTID
              , PRODUCTNAME
              , PRICE
-        FROM PRODUCT
+        FROM Purchase
     </select>
 
 </mapper>

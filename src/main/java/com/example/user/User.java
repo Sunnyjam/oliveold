@@ -12,14 +12,19 @@ import lombok.ToString;
 @ToString
 public class User {
 
-    public static int UserResponse;
     private String userId;
     private String userName;
     private String userPassword;
     private int id;
     private String email;
 
+    private String message;
+
+    public User(String message) {
+        this.message = message;
+    }
+
     public static User returnMessageUser(String message) {
-        return new User();
+        return new User(message);
     }
 }

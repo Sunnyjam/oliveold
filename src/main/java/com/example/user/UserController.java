@@ -1,5 +1,7 @@
     package com.example.user;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,23 +49,35 @@ public class UserController {
         return userService.emailCheck(email);
     }
 
-    @PostMapping("/{login}")
-    public User login(@RequestBody User user) {
-        // 조회를 했을 때 값이 없을 경우
+    @PostMapping("/login")
+    public User login(@RequestBody User user, HttpServletRequest request) {
+        HttpSession httpSession = request.getSession();
         User login = userService.login(user);
-        if (login == null) {
-            return User.returnMessageUser("존재하지 않는 이메일 입니다");
-        } else {
-            return User.returnMessageUser("로그인 성공");
+        httpSession.setAttribute("loginUser", login); // key
+        return login;
+    }
+    @GetMapping(value = "/index")
+    public void indexGET(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.getAttribute("loginUser");
+    }
+
+    @PostMapping("/logout")
+    public void logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            session.invalidate();
         }
     }
-    @GetMapping("/{sessionId}")
-    public String selectSession(@PathVariable String sessionId) {
-        return userService.selectSession(sessionId);
-    }
+
 
     @PutMapping("/updateUser")
     public int userUpdate(@RequestBody User user) {
         return userService.userUpdate(user);
+    }
+    @PostMapping("/findPassWord")
+    public User findPassWord(@RequestBody User user) {
+        return userService.findPassWord(user);
     }
 }
