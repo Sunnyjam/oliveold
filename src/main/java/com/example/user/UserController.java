@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public String userIdCheck(@PathVariable String userId) {
+    public String userIdCheck(@PathVariable String userId)   {
         return userService.userIdCheck(userId);
     }
 

@@ -66,8 +66,8 @@
     <update id="userUpdate" parameterType="com.example.user.User">
         UPDATE USER
         SET
-            USERPASSWORD = #{userPassword},
-            USERNAME = #{userName}
+        USERPASSWORD = #{userPassword},
+        USERNAME = #{userName}
         WHERE EMAIL = #{email}
     </update>
 
@@ -78,8 +78,8 @@
     </select>
 
     <select id="findPassWord" parameterType="com.example.user.User" resultType="com.example.user.User">
-        SELECT userId
-              ,userPassword
+        SELECT USERID
+              ,USERPASSWORD
         FROM USER
         WHERE USERID = #{userId}
     </select>
